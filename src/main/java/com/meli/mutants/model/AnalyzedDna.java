@@ -12,5 +12,4 @@ public class AnalyzedDna {
     private String dnaSequence;
     @NotNull
     private Boolean isMutant;
-    private String[] mutantSequences;
 }

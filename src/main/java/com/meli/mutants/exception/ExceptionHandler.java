@@ -16,9 +16,16 @@ class ExceptionHandler {
         return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(value = {DnaException.class})
-    ResponseEntity<Object> handleDnaException(DnaException e) {
-        log.error("Error analysing Dna: {}", e.getMessage());
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {MutantServiceException.class})
+    ResponseEntity<Object> handleServiceException(MutantServiceException e) {
+        if(e instanceof DnaException) {
+            log.error("Error analysing Dna: {}", e.getMessage());
+        } else if(e instanceof StatsException) {
+            log.error("Error getting Stats: {}", e.getMessage());
+        } else {
+            return handleGeneralException(e);
+        }
+
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 }
