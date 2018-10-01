@@ -5,3 +5,5 @@ CREATE TABLE IF NOT EXISTS "mutants"."dna"(
 	"is_mutant" boolean NOT NULL,
 	primary key ("dna_sequence")
 );
+
+TRUNCATE TABLE "mutants"."dna";

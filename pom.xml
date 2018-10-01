@@ -6,7 +6,7 @@
     <groupId>com.meli</groupId>
     <artifactId>mutants</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>mutants</name>
     <description>Magneto's mutant detector (MeLi test)</description>
@@ -53,6 +53,11 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
 
         <!-- Needed for async logging -->
