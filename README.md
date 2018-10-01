@@ -14,7 +14,7 @@ axis.
  `mvn clean install`
 
 ##### Tests coverage:
-![Tests Coverage](coverage.png?raw=true "Coverage")
+![Tests Coverage](coverage.png?raw=true "Coverage")<br/>
 The `domain` package contains auto-generated jOOQ resources, not all used by the application code.
 
 
@@ -29,7 +29,13 @@ The `domain` package contains auto-generated jOOQ resources, not all used by the
 #### Analyze DNA
 
 After starting the project, call the API to analyze a DNA, sending a POST request to `localhost:8080/mutant` with a 
-JSON containing the DNA sequence in the request body. 
+JSON containing the DNA sequence in the request body.
+```
+POST /mutant
+{
+    "sequences":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
+}
+```
 
 Example:<br/>
 ```curl -X POST http://localhost:8080/mutant -H 'Content-Type: application/json' -d '{"sequences":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}'```
@@ -39,8 +45,10 @@ Example:<br/>
  
 #### Stats
  
-To check how many mutants were recruited (and how many humans were tested), on can call the `/stats` API to get check 
+To check how many mutants were recruited (and how many humans were tested), one can call the `/stats` API to get check 
 the stats from every unique DNA already tested.
+
+```GET /stats```
 
 Example:<br/>
 ```curl -X GET http://localhost:8080/stats```
